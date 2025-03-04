@@ -1,23 +1,23 @@
 #include "push_swap.h"
 
-size_t find_max_node(t_list *lst_b, t_list **max_node)
+size_t find_max_node(t_list *lst_b)
 {
     size_t index;
     size_t max_index;
-    *max_node = lst_b;
+    int max_value;
 
     index = 0;
     max_index = 0;
-    *max_node = lst_b;
+    max_value = lst_b->content;
     if (!lst_b)
         return 0;
 
     t_list *tmp = lst_b;
     while (tmp)
     {
-        if (tmp->content > (*max_node)->content)
+        if (tmp->content > max_value)
         {
-            *max_node = tmp;
+            max_value = tmp->content;
             max_index = index;
         }
         tmp = tmp->next;
@@ -26,30 +26,39 @@ size_t find_max_node(t_list *lst_b, t_list **max_node)
     return max_index;
 }
 
+int get_last_node(t_list *lst_b)
+{
+    while (lst_b->next) lst_b = lst_b->next;
+    return lst_b->content;
+}
+
 size_t find_insert_position(t_list *lst_b, int value)
 {
     size_t index;
+    int prev;
+    int curr;
     //size_t max_index;
     t_list *tmp;
-    t_list *max_node;
 
-    index = 0;
-    find_max_node(lst_b, &max_node);
-    tmp = lst_b;
     if (!lst_b)
         return 0;
-    tmp = lst_b;
     index = 0;
+    prev = get_last_node(lst_b);
+    //find_max_node(lst_b, &max_node);
+    tmp = lst_b;
     while (tmp)
     {
-        if (tmp->content > value)
-            return index + 1;
-        if (tmp == max_node && value > lst_b->content)
-            return 0;
+        curr = tmp->content;
+        if (prev > value && curr < value) return index;
+        prev = curr;
+        //if (tmp->content > value)
+        //    return index + 1;
+        //if (tmp == max_node && value > lst_b->content)
+        //    return 0;
         tmp = tmp->next;
         index++;
     }
-    return index;
+    return find_max_node(lst_b);// + (value < prev);
 }
 int find_min_val(t_list *lst)
 {
@@ -81,4 +90,20 @@ size_t find_idx(t_list *lst, int value)
 }
 
 
+/*
+0 ? 3 ? 6 ? 10
 
+9
+5
+1
+
+5
+1
+9
+
+1
+9
+5
+
+
+*/

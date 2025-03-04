@@ -35,7 +35,7 @@ void opti_cost_rrr(t_list *a);
 t_list *best_cost(t_list *lst_a);
 int ft_comp(int i, int j);
 //				FIND.C
-size_t find_max_node(t_list *lst_b, t_list **max_node);
+size_t find_max_node(t_list *lst_b);
 size_t find_insert_position(t_list *lst_b, int value);
 size_t find_idx(t_list *lst, int value);
 int find_min_val(t_list *lst);

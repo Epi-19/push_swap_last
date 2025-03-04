@@ -3,23 +3,23 @@ int main(int argc, char **argv)
 {
     t_list *lst_a;
 	t_list *lst_b;
-    t_list *tmp;
+    //t_list *tmp;
 
 	lst_b = NULL;
     lst_a = ft_pars(argc, argv);
-    if (!lst_a)
-    {
-        printf("Erreur : Parsing invalide.\n");
-        return (1);
-    }
-    printf("Liste chaînée après parsing :\n");
-    tmp = lst_a;
-    while (tmp)
-    {
-        printf("%d -> ", tmp->content);
-        tmp = tmp->next;
-    }
-    printf("NULL\n");
+    //if (!lst_a)
+    //{
+    //    printf("Erreur : Parsing invalide.\n");
+    //    return (1);
+    //}
+    //printf("Liste chaînée après parsing :\n");
+    //tmp = lst_a;
+    //while (tmp)
+    //{
+    //    printf("%d -> ", tmp->content);
+    //    tmp = tmp->next;
+    //}
+    //printf("NULL\n");
     if (!is_sorted(lst_a))
     {
         size_t size = get_list_size(lst_a);
@@ -33,14 +33,14 @@ int main(int argc, char **argv)
 		else
 			sort_more_than_three(&lst_a, &lst_b);
 	}
-	printf("\nListe chaînée après tri/modifications :\n");
-    tmp = lst_a;
-    while (tmp)
-    {
-        printf("%d -> ", tmp->content);
-        tmp = tmp->next;
-    }
-    printf("NULL\n");
+	//printf("\nListe chaînée après tri/modifications :\n");
+    //tmp = lst_a;
+    //while (tmp)
+    //{
+    //    printf("%d -> ", tmp->content);
+    //    tmp = tmp->next;
+    //}
+    //printf("NULL\n");
     ft_lstclear(&lst_a);
     return (0);
 }

@@ -27,7 +27,7 @@ void move_best_to_top(t_list **lst_a, t_list **lst_b, t_list *best_node)
         return;
     ra_rra(best_node);
     rb_rrb(best_node);
-    rr_rrr(best_node);
+    //rr_rrr(best_node);
     while (best_node->rr > 0)
         best_node->rr -= rr(lst_a, lst_b);
     while (best_node->rrr > 0)

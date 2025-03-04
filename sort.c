@@ -36,6 +36,7 @@ void sort_stack(t_list **lst_a)
 }
 void sort_more_than_three(t_list **lst_a, t_list **lst_b)
 {
+    //printf("sort_more than three\n");
     if (get_list_size(*lst_a) > 3)
         pb(lst_a, lst_b);
     if (is_circularly_sorted(*lst_a))
@@ -44,18 +45,28 @@ void sort_more_than_three(t_list **lst_a, t_list **lst_b)
         pb(lst_a, lst_b);
     if (is_circularly_sorted(*lst_a))
         sort_stack(lst_a);
-    while (get_list_size(*lst_a) >= 3 && !is_sorted(*lst_a))
+    while (get_list_size(*lst_a) > 0)// && !is_sorted(*lst_a))
 	{
+        //printf("debut:____________________________________________\n");
+        //ft_display(*lst_a, *lst_b);
         set_cost(*lst_a, *lst_b);
-        printf("CONTENT : %d\n", best_cost(*lst_a)->content);
-        printf("RA : %d\n", best_cost(*lst_a)->ra);
-        printf("RB : %d\n", best_cost(*lst_a)->rb);
-        printf("RR : %d\n", best_cost(*lst_a)->rr);
-        printf("RRA : %d\n", best_cost(*lst_a)->rra);
-        printf("RRB : %d\n", best_cost(*lst_a)->rrb);
-        printf("RRR : %d\n", best_cost(*lst_a)->rrr);
+        //printf("CONTENT : %d\n", best_cost(*lst_a)->content);
+        //printf("RA : %d\n", best_cost(*lst_a)->ra);
+        //printf("RB : %d\n", best_cost(*lst_a)->rb);
+        //printf("RR : %d\n", best_cost(*lst_a)->rr);
+        //printf("RRA : %d\n", best_cost(*lst_a)->rra);
+        //printf("RRB : %d\n", best_cost(*lst_a)->rrb);
+        //printf("RRR : %d\n", best_cost(*lst_a)->rrr);
         move_best_to_top(lst_a, lst_b, best_cost(*lst_a));
-        ft_display(*lst_a, *lst_b);
+        //printf("BUGTENT\n");
+        //ft_display(*lst_a, *lst_b);
+        //printf("fin:____________________________________________\n");
 	}
-
+    //ft_display(*lst_a, *lst_b);
+    size_t cnt = find_max_node(*lst_b);
+    size_t index = 0;
+    while (index++ < cnt) rb(lst_b);
+    //ft_display(*lst_a, *lst_b);
+    while(*lst_b) pa(lst_a, lst_b);
+    //ft_display(*lst_a, *lst_b);
 }

@@ -52,6 +52,7 @@ bool is_sorted_from(t_list *start, int size)
 
 bool is_circularly_sorted(t_list *lst_a)
 {
+    return false;
     t_list *min_node;
     t_list *current;
     int size_a;
