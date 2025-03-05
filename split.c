@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rodebacq <rodebacq@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 19:48:37 by rodebacq          #+#    #+#             */
+/*   Updated: 2025/03/05 19:49:40 by rodebacq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 size_t	ft_count_word(const char *s, char c)
@@ -82,15 +94,16 @@ char	**ft_split(char const *s, char c)
 	}
 	return (tab);
 }
-void ft_free_split(char **strs)
+
+void	ft_free_split(char **strs)
 {
-    int i;
-	
+	int	i;
+
 	i = 0;
-    while (strs[i])
+	while (strs[i])
 	{
-        free(strs[i]);
+		free(strs[i]);
 		i++;
 	}
-    free(strs);
+	free(strs);
 }
